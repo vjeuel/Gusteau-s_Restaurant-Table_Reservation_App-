@@ -1,1 +1,1 @@
- https://vjeuel.github.io/Table_Reservation_App/
+ https://vjeuel.github.io/Table_Reservation_App/index.html
