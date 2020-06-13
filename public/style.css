@@ -1,0 +1,238 @@
+* {
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 10px;
+   /* height: 100vh; */
+   background: #402222;
+}
+
+body {
+   display: grid;
+   grid-template-rows: 1fr auto;
+   grid-gap: 5rem;
+}
+
+h1 {
+   font-family: 'Lobster', cursive;
+   font-size: 8rem;
+   color: #402222;
+   background-color: rgba(242, 242, 242, 0.8);
+   text-align: center;
+   box-shadow: 0 0 3px 1px #402222;
+   border-radius: 2rem;
+   padding: 2rem;
+}
+
+h2 {
+   font-family: 'Merriweather', serif;
+   font-size: 3rem;
+   text-align: center;
+   line-height: 1.25;
+   color: #402222;
+   padding: 2rem;
+}
+
+h3 {
+   font-family: 'Merriweather', serif;
+   font-size: 2rem;
+   letter-spacing: 0.25rem;
+   text-align: center;
+}
+
+a {
+   font-family: 'Merriweather', serif;
+   font-size: 1.25rem;
+   text-decoration: none;
+}
+
+p {
+   font-family: 'Merriweather', serif;
+   font-size: 1.25rem;
+   color: #402222;
+}
+
+
+/* MAIN */
+main {
+   padding-bottom: 5rem;
+}
+
+#pic {
+   background: url(./joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg);   
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+   padding: 5rem 0;
+}
+
+#restaurant {
+   width: 50%;
+   margin: 0 auto;
+   background-color: rgba(242, 242, 242, 0.6);
+   border-radius: 2rem;
+   padding: 3rem 3rem 1rem;
+   border: 0.75rem solid #89A61F;
+   box-shadow: inset 0 0 10px 4px #402222;
+}
+
+/* BUTTONS */
+#buttons {
+   text-align: center;
+   width: 40%;
+   margin: 0 auto;
+   margin-top: 3rem;
+}
+
+a {
+   text-decoration: none;
+   letter-spacing: 0.2rem;
+   border: none;
+   padding: 1rem 2rem;
+   border-radius: 1rem;
+   margin: 2rem 1rem;
+}
+
+#button-1, #button-2, #button-3 {
+   background-color: #8EA676;
+   color: #f2f2f2;
+   padding: 1.5rem;
+   margin: 0 auto;
+   font-size: 2rem;
+   text-align: center;
+   display: block;
+   margin-bottom: 1rem;
+}
+
+#button-1:hover, #button-2:hover, #button-3:hover {
+   background-color: #89A61F;
+   transition: ease-in-out 0.25s;
+}
+
+
+/* TABLES */
+section {
+   background-color: rgba(242, 242, 242, 0.85);
+   width: 80%;
+   margin: 0 auto;
+   height: 10rem;
+   border-radius: 2rem;
+   margin-bottom: 2rem;
+   margin-top: 5rem;
+}
+
+.division {
+   color: #f2f2f2;
+   background-color: #A6583C;
+   padding: 1.5rem;
+   border-top-right-radius: 2rem;
+   border-top-left-radius: 2rem;
+   border-bottom: 0.5rem solid #89A61F;
+}
+
+/* RESERVE */
+#reserve {
+   height: auto;
+   text-align: center;
+}
+
+#reserve input{
+   font-family: 'Merriweather', serif;   
+   font-size: 1.5rem;
+   width: 95%;
+   margin: 0 auto;
+   border-radius: 1rem;
+   border: none;
+   padding: 1.5rem;
+   margin: 1rem 2rem;
+   box-shadow: inset 0 0 3px 1px #402222;
+}
+
+input::placeholder {
+   font-family: 'Merriweather', serif;   
+   font-size: 1.25rem;
+}
+
+#button-3 {
+   width: 40%;
+}
+
+#bottom-garnish {
+   background-color: #A6583C;
+   height: 2rem;
+   border-bottom-left-radius: 2rem;
+   border-bottom-right-radius: 2rem;
+   border-top: 0.5rem solid #89A61F;
+}
+
+/* FOOTER */
+footer {
+   text-align: center;
+   background-color: #89A61F;
+   padding: 1rem;
+   align-self: center;
+   position: sticky;
+}
+
+footer a {
+   color: #402222;
+}
+
+footer a:hover {
+   color: #f2f2f2;
+}
+
+
+/* MEDIA QUERY */
+@media (max-width: 992px) {
+   #restaurant {
+      width: 70%;
+   }
+   
+}
+
+@media (max-width: 768px) {
+   h1 {
+      font-size: 5rem;
+   }
+   
+   h2 {
+      font-size: 2rem;
+   }
+}
+
+@media (max-width: 576px) {
+   h1 {
+      font-size: 4rem;
+   }
+
+   #restaurant {
+      width: 90%;
+   }
+
+   #button-1, #button-2, #button-3, h3 {
+   font-size: 1.5rem;   
+   }
+}
+
+
+/* Color Theme Swatches in Hex */
+.Cacao-beans-and-powder-isolated-1-hex { color: #8EA676; }
+.Cacao-beans-and-powder-isolated-2-hex { color: #89A61F; }
+.Cacao-beans-and-powder-isolated-3-hex { color: #A6583C; }
+.Cacao-beans-and-powder-isolated-4-hex { color: #402222; }
+.Cacao-beans-and-powder-isolated-5-hex { color: #F2F2F2; }
+
+/* Color Theme Swatches in RGBA */
+.Cacao-beans-and-powder-isolated-1-rgba { color: rgba(141, 165, 117, 1); }
+.Cacao-beans-and-powder-isolated-2-rgba { color: rgba(136, 165, 31, 1); }
+.Cacao-beans-and-powder-isolated-3-rgba { color: rgba(165, 87, 59, 1); }
+.Cacao-beans-and-powder-isolated-4-rgba { color: rgba(63, 33, 33, 1); }
+.Cacao-beans-and-powder-isolated-5-rgba { color: rgba(242, 242, 242, 1); }
+
+/* FONTS */
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Merriweather', serif;
+*/

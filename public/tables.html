@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="reset.css">
+   <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&display=swap" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gusteau's Restaurant</title>
+</head>
+<body>
+   <main>
+      <div id="pic">
+         <div id="restaurant">
+            <h1>Gusteau's Restaurant</h1>
+            <h2>Book your seat before they are all gone!</h2>
+         </div>
+         <div id="buttons">
+            <a href="/tables" id="button-1">view tables</a>
+            <a href="/" id="button-2">home</a>
+         </div>
+      </div>
+
+      
+      <section>
+         <div class="division">
+            <h3>Current Reservations</h3>
+         </div>
+         <div>
+            <ul id="table-list" class="list-group"></ul>
+         </div>
+      </section>
+      
+      <section>
+         <div class="division">
+            <h3>Waiting List</h3>
+         </div>
+         <div>
+            <ul id="wait-list" class="list-group"></ul>
+         </div>
+      </section>
+   </main>
+
+   <footer>
+      <p><a href="#" id="clear">Clear Table</a> |
+         <a href="/api/tables">API Table Link</a> | 
+         <a href="/api/waitlist">API Wait List</a>
+      </p>
+   </footer>
+</body>
+
+   <script type="text/javascript">
+      function runTableQuery() {
+         $.ajax({ url: "api/tables", method: "GET"})
+            .then(tableData => {
+            
+            console.log(tableData);
+            console.log("---------------------------------");
+            
+            for (let i = 0; i < tableData.length; i++) {
+               const tableList = $("#table-list");
+               const listItem = $("<li class='list-group-item'>");
+
+               listItem.append(
+                  $("<h4>").text("Table #" + (i + 1)),
+                  $("<hr>"),
+                  $("<h4>").text(`ID: ${tableData[i].customerID}`),
+                  $("<h4>").text(`Name: ${tableData[i].customerName}`),
+                  $("<h4>").text(`Email: ${tableData[i].customerEmail}`),
+                  $("<h4>").text(`Phone: ${tableData[i].phoneNumber}`)
+               );
+               
+                  tableList.append(listItem);
+            };
+         });
+      };
+
+      function runWaitListQuery() {
+         $.ajax({ url: "/api/waitlist", method: "GET" })
+         .then(waitData => {
+            console.log(waitData);
+            console.log("---------------------------------");
+            
+            for (let i = 0; i < waitData.length; i++) {
+               const waitList = $("#wait-list")
+               const listItem = $("<li class='list-group-item'>");
+
+               listItem.append(
+                  $("<h4>").text("table #" + (i + 1)),
+                  $("<hr>"),
+                  $("<h4>").text("ID: " + waitData[i].customerID),
+                  $("<h4>").text("Name: " + waitData[i].customerName),
+                  $("<h4>").text("Email: " + waitData[i].customerEmail),
+                  $("<h4>").text("Phone: " + waitData[i].phoneNumber)
+               );
+
+               waitList.append(listItem);
+            };
+         });
+      };
+      
+      function clearTable() {
+         alert("Clearing...");
+
+         $.ajax({ url: "/api/clear", method: "POST" }).then(() => {
+            $("waitList").empty();
+            $("tableList").empty();
+         });
+      };
+
+      $("#clear").on("click", clearTable);
+
+      runTableQuery();
+      runWaitListQuery();
+
+   </script>
+
+</html>

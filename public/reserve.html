@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="reset.css">
+   <link rel="stylesheet" href="style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&display=swap" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gusteau's Restaurant</title>
+</head>
+<body>
+   <main>
+      <div id="pic">
+         <div id="restaurant">
+            <h1>Gusteau's Restaurant</h1>
+            <h2>Book your seat before they are all gone!</h2>
+         </div>
+   
+         <div id="buttons">
+            <a href="/tables" id="button-1">view tables</a>
+            <a href="/" id="button-2">home</a>
+         </div>
+      </div>
+
+      
+      <section id="reserve">
+         <div class="division">
+            <h3>Table Reservation</h3>
+         </div>
+         
+         <form role="form">
+            <input type="text" class="form-control" id="reserve-name" placeholder="name"/>
+            <input type="text" class="form-control" id="reserve-phone" placeholder="phone number"/>
+            <input type="e-mail" class="form-control" id="reserve-email" placeholder="e-Mail"/>
+            <input type="text" class="form-control" id="reserve-id" placeholder="unique ID" />
+            <a type="submit" class="submit" id="button-3">submit</a>
+         </form>
+
+         <div id="bottom-garnish"></div>
+      </section>
+   </main>
+
+
+   <footer>
+      <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
+   </footer>
+</body>
+
+   <script type="text/javascript">
+      $("submit").on("click", event => {
+         event.preventDefault();
+
+         const newReservation = {
+            customerName: $("#reserve-name").val().trim(),
+            phoneNumber: $("#reserve-phone").val().trim(),
+            customerEmail: $("#reserve-email").val().trim(),
+            customerID: $("#reserve-id").val().trim()                  
+         };
+
+         console.log(newReservation);
+
+         $.post("/api/tables", newReservation,
+         function(data){
+         if (data) {
+            alert("Yay! You are officially booked!");
+         } else {
+            alert("Sorry, you are on the wait list");
+         };
+
+         $("#reserve-name").val("");
+         $("#reserve-phone").val("");
+         $("#reserve-email").val("");
+         $("reserve-id").val("");
+      });
+   });
+   </script>
+
+</html>
